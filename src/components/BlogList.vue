@@ -1,7 +1,7 @@
 <template>
     <section>
         <ul class="list">
-             <g-link  v-for="post in posts" :key="post.node.title" :to="post.node.path">
+             <g-link v-for="post in posts" :key="post.node.title" :to="post.node.path">
                 <li>
                     <div class="hero_image">
                         <g-image 
@@ -36,8 +36,8 @@
             return new Date(date).toDateString().slice(4)
           }, 
           formatExcerpt(excerpt) {
-            const blurb = excerpt.slice(3,200).trim()
-            return blurb.indexOf('</p>') !== -1 ? blurb.slice( 0, blurb.indexOf('</p>')  ).trim()  + "..." : blurb  + "..."
+            const blurb = excerpt.slice(3,300).trim()
+            return blurb.indexOf('</p>') !== -1 ? blurb.slice( 0, blurb.indexOf('</p>')  ).trim() : blurb  + "..."
           }
         }
     }
@@ -111,6 +111,8 @@
       color: #464646;
 	}
 	.post_date {
+		font-family: "Work Sans","Helvetica Neue", Helvetica, sans-serif;
+		color: #464646;
 		font-size: 1rem;
 	}
   }

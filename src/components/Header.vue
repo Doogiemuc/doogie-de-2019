@@ -59,8 +59,10 @@ export default {
 }
 
 .siteDescription {
+	font-family: "Work Sans","Helvetica Neue", Helvetica, sans-serif;
 	font-size: 1.0rem;
-	letter-spacing: 0px;
+	color: #464646;
+	/*letter-spacing: 0px;*/
 }
   
 .nav {
@@ -88,6 +90,7 @@ export default {
 	font-size: 1.0rem;
 }
 
+.nav-about a { color: #464646; }
 
   
 @media (min-width: 768px) {

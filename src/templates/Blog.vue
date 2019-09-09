@@ -10,7 +10,7 @@
             </div>
             <div class="blog__body" v-html="$page.post.content"></div>
             <div class="blog__footer">
-                <h2>Written By: {{ $page.post.author }}</h2>
+                <!-- h2>Written By: {{ $page.post.author }}</h2 -->
                 <g-link :to="nextBlogPath">
                     <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 26 26" enableBackground="new 0 0 26 26" >
                         <path d="M23.021,12.294l-8.714-8.715l-1.414,1.414l7.007,7.008H2.687v2h17.213l-7.007,7.006l1.414,1.414l8.714-8.713  C23.411,13.317,23.411,12.685,23.021,12.294z"/>
@@ -25,7 +25,7 @@
     export default {
         metaInfo() {
             return {
-                title: this.$page.post.title
+				title: this.$page.post.title
             }
         }, 
         computed: {
@@ -109,7 +109,8 @@ query getPostData ($path: String!) {
         margin: 0 auto;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+		justify-content: center;
+		color: #464646;
         a {
             padding-bottom: 1.45rem;
         }
@@ -117,13 +118,13 @@ query getPostData ($path: String!) {
             margin-bottom: 0;
         }
         h1, h2, h3, h4, h5, h6 {
+			color: #A0A0A0;
             font-weight: normal;
-            padding: 1.5rem;
+            padding: 1.5rem 0;
             line-height: 1.2;
             margin-bottom: 1.5rem;
         }
         p {
-            color: #464646;
             font-weight: normal;
             img {
                 margin: 1rem 0;
@@ -133,7 +134,7 @@ query getPostData ($path: String!) {
             list-style: initial;
         }
         ul, ol {
-            margin-left: 1.25rem;
+            //margin-left: 1.25rem;
             margin-bottom: 1.25rem;
             padding-left: 1.45rem;
         }
@@ -141,7 +142,7 @@ query getPostData ($path: String!) {
 
     .blog__footer {
         display: flex;
-        justify-content: space-between;
+        justify-content: right;
         align-items: center;
         padding: 1.5rem 1.25rem;
         width: 100%;
@@ -188,7 +189,7 @@ query getPostData ($path: String!) {
             text-align: center;
             padding: 2rem 0;
             h1 {
-				max-width: 500px;
+				//max-width: 500px;
 				margin: 0 auto 0.66rem auto;
             }
         }
