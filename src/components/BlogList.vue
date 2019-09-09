@@ -1,7 +1,7 @@
 <template>
     <section>
         <ul class="list">
-             <g-link  v-for="post in posts" :key="post.node.title" :to="post.node.path" >
+             <g-link  v-for="post in posts" :key="post.node.title" :to="post.node.path">
                 <li>
                     <div class="hero_image">
                         <g-image 
@@ -14,7 +14,7 @@
                     </div>
                     <div class="blogList__info">
                         <h2>{{ post.node.title }}</h2>
-                        <h3>{{ formatDate(post.node.date) }}</h3>
+                        <h3 class="post_date">{{ formatDate(post.node.date) }}</h3>
                         <p v-html="formatExcerpt(post.node.content)"></p>
                     </div>
                 </li>
@@ -45,6 +45,9 @@
 
 <style scoped lang="scss">
 .list {
+	a {
+		text-decoration: none;
+	}
     a:hover {
       opacity: 1;
       li {
@@ -58,7 +61,7 @@
     }
     .hero_image {
       width: 100%;
-      height: 33vh;
+      height: 100px; //33vh;
       overflow: hidden;
       background-color: #000;
       img {
@@ -74,7 +77,7 @@
       flex-direction: column;
       justify-content: center;
       padding: 1.5rem 1.25rem;
-      border-bottom: 1px solid #ebebeb;
+	  margin-bottom: 3rem;
       h2,
       h3,
       p {
@@ -82,7 +85,11 @@
         transform: translateX(0px);
         -webkit-transition: transform 0.5 ease-out;
         transition: transform 0.5s ease-out;
-      }
+	  }
+	  h2 {
+		  font-family: Georgia, 'Times New Roman', Times, serif;
+		  letter-spacing: 0px;
+	  }
     }
   
     li {
@@ -94,15 +101,18 @@
       margin-bottom: 0;
     }
     h2 {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.1rem;
     }
     h3 {
       margin-bottom: 1rem;
-    }
+	}
     p {
       max-width: 900px;
       color: #464646;
-    }
+	}
+	.post_date {
+		font-size: 1rem;
+	}
   }
   
   @media (min-width: 768px) {
@@ -144,7 +154,9 @@
         }
       }
       .blogList__info {
-        min-width: 70%;
+		min-width: 70%;
+		border-bottom: 1px solid #ebebeb;
+		margin-bottom: 0;
       }
     }
   }

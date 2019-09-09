@@ -1,31 +1,19 @@
 <template>
     <Layout page="info">
         <section class="info__blurb">
-                <div v-html="data.description"></div>
-                <div v-html="data.cta"></div>
-            <ul>
-                <li>
-                    <p>
-                        <a :href="`mailto:${data.contact.email}`">
-                            Email: {{ data.contact.email}}
-                        </a>
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <a :href="`https://twitter.com/${data.contact.twitter_handle}`">
-                            Twitter: @{{ data.contact.twitter_handle}}
-                        </a>
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <a :href="`https://github.com/${data.contact.github_handle}`">
-                            Github: {{ data.contact.github_handle }}
-                        </a>
-                    </p>
-                </li>
-            </ul>
+            <div v-html="data.description"></div>
+            <div v-html="data.cta"></div>
+			<!-- p>
+				<a :href="`mailto:${data.contact.email}`">
+					{{ data.contact.email}}
+				</a>
+			</p -->
+			<p>
+				<a :href="`https://github.com/${data.contact.github_handle}`">
+					<img src="GitHub-Mark-32px.png" style="vertical-align: middle"/>
+					{{ data.contact.github_handle }}
+				</a>
+			</p>
         </section>
     </Layout>
 </template>
@@ -70,9 +58,11 @@
     .info__blurb {
         max-width: 800px;
         padding: 1.5rem 1.25rem;
-        p {
+		/*
+		p {
             font-size: 1.4rem;
-        }
+		}
+		*/
     }
 
     @media (min-width: 768px) {

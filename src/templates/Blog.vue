@@ -76,14 +76,14 @@ query getPostData ($path: String!) {
     .blog__hero {
         overflow: hidden;
         min-height: 300px;
-        height: 60vh;
+        height: 30vh;
         width: 100%;
         margin: 0;
         img {
             min-width: 100%;
             min-height: 100%;
             margin-bottom: 0;
-            object-fit: cover;
+            object-fit: cover;  
         }
     }
 
@@ -94,6 +94,8 @@ query getPostData ($path: String!) {
         max-width: 768px;
         margin: 0 auto;
         h1 {
+			font-family: Georgia, 'Times New Roman', Times, serif;
+		  	letter-spacing: 0px;
             margin-bottom: 0.66rem;
         }
         h3 {
@@ -176,18 +178,18 @@ query getPostData ($path: String!) {
             }
         }
         .blog__hero {
-            min-height: 600px;
-            height: 75vh;
+            //min-height: 600px;
+            height: 33.33vh;
             img {
-            min-width: 100%;
+            	min-width: 100%;
             }
         }
         .blog__info {
             text-align: center;
             padding: 2rem 0;
             h1 {
-            max-width: 500px;
-            margin: 0 auto 0.66rem auto;
+				max-width: 500px;
+				margin: 0 auto 0.66rem auto;
             }
         }
         .blog__footer {
@@ -196,9 +198,11 @@ query getPostData ($path: String!) {
     }
 
     @media (min-width: 1440px) {
-        .blog__hero {
-            height: 70vh;
-        }
+		/*
+		.blog__hero {
+            height: 30vh;
+		}
+		*/
         .blog__info {
             padding: 3rem 0;
         }

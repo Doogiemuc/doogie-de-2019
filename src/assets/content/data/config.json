@@ -1,12 +1,12 @@
 {
-    "title": "Brevifolia",
-    "description": "Starter blog using Forestry CMS with Gridsome.",
+    "title": "Doogie.de",
+    "description": "Robert's private blog",
     "contact": {
-      "email": "info@forestry.io",
-      "twitter_handle": "forestryio",
-      "github_handle": "forestryio"
+      "email": "webmaster2019@doogie.de",
+      "twitter_handle": "doogiemuc",
+      "github_handle": "doogiemuc"
     },
     "primary_color": "#ACCAC5",
-    "repository_url": "https://github.com/kendallstrautman/starter-blog-gridsome"
+    "repository_url": "https://github.com/Doogiemuc/doogie-de-2019"
   }
   

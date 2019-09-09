@@ -1,11 +1,11 @@
 {
-  "description": "<p>This blog was created using <a href=\"https://forestry.io/\" title=\"Forestry Link\">Forestry</a> &amp; <a href=\"https://gridsome.org/\" title=\"Gatsby Link\">Gridsome</a></p>",
-  "cta": "<p>To get started, import this site into Forestry or checkout the repository <a href=\"https://github.com/kendallstrautman/starter-blog-gatsby\" title=\"Repo Url\">here</a>.</p>",
+  "description": "<p>This is my private personal blog.</p><p>This blog was created using <a href=\"https://gridsome.org/\">Gridsome</a>, the VueJS static site generator</p>",
+  "cta": "<p>Made with &hearts; and the awesome <a href=\"https://github.com/kendallstrautman/starter-blog-gatsby\">Brevolia</a> starter template.</p>",
   "contact": {
-    "email": "info@forestry.io",
-    "twitter_handle": "forestryio",
-    "github_handle": "forestryio"
+    "email": "webmaster2019@doogie.de",
+    "twitter_handle": "doogiemuc",
+    "github_handle": "doogiemuc"
   },
-  "background_color": "#B1BCBC",
-  "text_color": "#ebebeb"
+  "background_color": "#FFF",
+  "text_color": "#000"
 }
