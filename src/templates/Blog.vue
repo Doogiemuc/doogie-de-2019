@@ -5,13 +5,14 @@
                 <g-image :src="$page.post.hero_image" :alt="$page.post.title"></g-image>
             </figure>
             <div class="blog__info" >
-            <h1>{{ $page.post.title }}</h1>
-            <h3>{{ $page.post.date }}</h3>
+				<h1>{{ $page.post.title }}</h1>
+				<h3 class="post_date">{{ $page.post.date }}</h3>
             </div>
             <div class="blog__body" v-html="$page.post.content"></div>
-            <div class="blog__footer">
+            <div class="blog__footer" v-if="nextBlogPath">
                 <!-- h2>Written By: {{ $page.post.author }}</h2 -->
                 <g-link :to="nextBlogPath">
+					{{nextBlogTitle}}&nbsp;
                     <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 26 26" enableBackground="new 0 0 26 26" >
                         <path d="M23.021,12.294l-8.714-8.715l-1.414,1.414l7.007,7.008H2.687v2h17.213l-7.007,7.006l1.414,1.414l8.714-8.713  C23.411,13.317,23.411,12.685,23.021,12.294z"/>
                     </svg>
@@ -29,6 +30,15 @@
             }
         }, 
         computed: {
+			nextBlogTitle: function() {
+                const allBlogs = this.$page.all.edges
+                const firstBlogTitle = allBlogs[0].node.title
+                const currentBlog = allBlogs.filter(node => node.node.title === this.$page.post.title)
+                function isNull(item) {
+                    return item == null || item == undefined
+                }
+                return isNull(currentBlog[0].next) ? undefined : currentBlog[0].next.title
+            },
             nextBlogPath: function() {
                 const allBlogs = this.$page.all.edges
                 const firstBlogPath = allBlogs[0].node.path
@@ -36,7 +46,7 @@
                 function isNull(item) {
                     return item == null || item == undefined
                 }
-                return isNull(currentBlog[0].next) ? firstBlogPath : currentBlog[0].next.path
+                return isNull(currentBlog[0].next) ? undefined : currentBlog[0].next.path
             }
         } 
     }
@@ -46,9 +56,10 @@
 query getPostData ($path: String!) {
     post: blog(path: $path) {
         title
-        date (format: "MMMM DD YYYY")
+        date (format: "MMMM DD, YYYY")
         author
         content
+		pinned
         hero_image (quality: 80)
     }
     all: allBlog {
@@ -59,6 +70,7 @@ query getPostData ($path: String!) {
             }
             next {
                 path
+				title
             }
         }
     }
@@ -101,7 +113,14 @@ query getPostData ($path: String!) {
         h3 {
             margin-bottom: 0;
         }
+		.post_date {
+			font-family: "Work Sans","Helvetica Neue", Helvetica, sans-serif;
+			color: #464646;
+			font-size: 1rem;
+		}
     }
+
+
 
     .blog__body {
         width: 100%;
@@ -147,7 +166,8 @@ query getPostData ($path: String!) {
         padding: 1.5rem 1.25rem;
         width: 100%;
         max-width: 800px;
-        margin: 0 auto;
+        margin: 3rem auto 0 auto;
+		border-top: 1px solid #A0A0A0;
         h2 {
             margin-bottom: 0;
         }

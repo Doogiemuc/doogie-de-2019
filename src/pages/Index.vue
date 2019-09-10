@@ -24,6 +24,7 @@ export default {
                 node {
                     id
                     title
+					pinned
                     path
                     author
                     date  (format: "MMMM DD YYYY")

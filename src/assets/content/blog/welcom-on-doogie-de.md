@@ -1,5 +1,5 @@
 ---
-title: Welcome on Doogie.de!
+title: Welcome on Doogie.de
 author: Doogie
 date: 2019-09-09T20:00:00Z
 hero_image: "/src/assets/content/images/mandel-fractal.jpg"

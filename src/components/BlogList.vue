@@ -1,26 +1,45 @@
 <template>
     <section>
         <ul class="list">
-             <g-link v-for="post in posts" :key="post.node.title" :to="post.node.path">
-                <li>
-                    <div class="hero_image">
-                        <g-image 
-                          :src="post.node.hero_image" 
-                          :alt="post.node.title" 
-                          width="300" 
-                          height="300" 
-                          quality="75">
-                        </g-image>
-                    </div>
-                    <div class="blogList__info">
-                        <h2>{{ post.node.title }}</h2>
-                        <h3 class="post_date">{{ formatDate(post.node.date) }}</h3>
-                        <p v-html="formatExcerpt(post.node.content)"></p>
-                    </div>
-                </li>
-            </g-link>            
+			<g-link v-for="post in posts" :key="post.node.title" :to="post.node.path">
+				<li v-if="post.node.pinned">
+					<!-- PINNED to top post -->
+					<div class="hero_image">
+						<g-image 
+							:src="post.node.hero_image" 
+							:alt="post.node.title" 
+							width="300" 
+							height="300" 
+							quality="75">
+						</g-image>
+					</div>
+					<div class="blogList__info">
+						<h2>{{ post.node.title }}</h2>
+						<h3 class="post_date">{{ formatDate(post.node.date) }} &uarr;</h3>
+						<p v-html="formatExcerpt(post.node.content)"></p>
+					</div>
+				</li>
+			</g-link>
+			<g-link v-for="post in posts" :key="post.node.title" :to="post.node.path">
+				<li v-if="!post.node.pinned">
+					<div class="hero_image">
+						<g-image 
+							:src="post.node.hero_image" 
+							:alt="post.node.title" 
+							width="300" 
+							height="300" 
+							quality="75">
+						</g-image>
+					</div>
+					<div class="blogList__info">
+						<h2>{{ post.node.title }}</h2>
+						<h3 class="post_date">{{ formatDate(post.node.date) }}</h3>
+						<p v-html="formatExcerpt(post.node.content)"></p>
+					</div>
+				</li>
+			</g-link>
         </ul>
-    </section>                       
+    </section>
 </template>
 
 <script>
